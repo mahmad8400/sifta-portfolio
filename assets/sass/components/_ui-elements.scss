@@ -1,0 +1,936 @@
+@import "./bootstrap-overrides";
+
+/**************************************
+    BUTTONS
+**************************************/
+.sa-btn{
+    padding: 12px 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    min-width: 120px;
+    text-decoration: none;
+    @include transitionEaseIn(.3s);
+    &:hover,
+    &:focus{
+        text-decoration: none;
+    }
+
+    @include breakpoint(large-laptop){
+        padding: 8px 16px;
+    }
+}
+.sa-btn-primary{
+    background-color: $primary;
+    color: $white;
+    border: 1px solid $primary;
+}
+.sa-btn-secondary{
+    background-color: $secondary;
+    color: $white;
+    border: 1px solid $secondary;
+}
+.sa-btn-primary,
+.sa-btn-secondary{
+    &:after {
+        background: $white;
+        content: "";
+        height: 155px;
+        left: -75px;
+        opacity: .2;
+        position: absolute;
+        top: -50px;
+        transform: rotate(35deg);
+        transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+        width: 50px;
+    }
+    &:hover{
+        color: $white;
+        &:after{
+            left: 120%;
+            transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+        }
+    }
+}
+
+.sa-btn-outline-primary{
+    border: 1px solid $primary;
+    background-color: $transparent;
+    color: $primary;
+    &:hover{
+        background-color: $primary;
+        color: $white;
+    }
+}
+
+.sa-btn-secondary-hover-primary{
+    background-color: $secondary;
+    color: $white;
+    @include transition(.3s);
+    &:hover{
+        background-color: $primary;
+        color: $white;
+    }
+}
+/*******************************
+    HAMBURGER
+*******************************/
+.hamburger {
+    display: none;
+    width: 40px;
+    position: relative;
+    height: 21px;
+    @include breakpoint(tab){
+      display: block;
+    }
+    .line {
+      position: absolute;
+      right: 0;
+      height: 2px;
+      background-color: $secondary;
+      transition: .3s;
+    }
+    .line1 {
+      width: 100%;
+      top: 0;
+    }
+    .line2 {
+      width: 50%;
+      top: 9px;
+      opacity: 1;
+      visibility: visible;
+    }
+    .line3 {
+      width: 75%;
+      top: 18px;
+    }
+  }
+  body.menu-btn-clicked {
+    overflow: hidden;
+    .hamburger {
+      .line1 {
+        top: 9px;
+        transform: rotate(-45deg);
+      }
+      .line2 {
+        transform: translateX(50px);
+        opacity: 0;
+        visibility: hidden;top: 9px;
+      }
+      .line3 {
+        top: 9px;
+        transform: rotate(45deg);
+        width: 100%;
+      }
+    }
+  }
+
+/**************************************
+    BACK BUTTON ICON
+**************************************/
+.element-with-back-btn {
+    position: relative;
+    .back-arrow {
+        position: absolute;
+        left: -35px;
+        top: 3px;
+        font-size: 40px;
+        color: $primary;
+        @include transition(.3s);
+        &:hover{
+            color: $secondary;
+        }
+        @include breakpoint(x-large-laptop){
+            left: -30px;
+            top: 0px;
+            font-size: 36px;
+        }
+        @include breakpoint(large-laptop){
+            left: -24px;
+            top: -1px;
+            font-size: 28px;
+        }
+        @include breakpoint(small-tab){
+            left: 0px;
+            top: -3px;
+        }
+    }
+}
+
+
+/**************************************
+    BREADCRUMB
+**************************************/
+  .sa-breadcrumb{
+    li{
+        color: $primary;
+        a{
+            font-weight: bold;
+            text-decoration: none;
+            color: $primary;
+            font-size: 18px;
+            @include transition(.3s);
+            &:hover{
+                color: $secondary;
+            }
+            @include breakpoint(x-large-laptop){
+                font-size: 14px;
+            }
+        }
+    }
+    
+    .breadcrumb-item+.breadcrumb-item{
+        padding-left: 1.25rem;
+        font-size: 18px;
+        color: $secondary;
+        @include breakpoint(x-large-laptop){
+            font-size: 14px;
+        }
+        @include breakpoint(mobile){
+            padding-left: .75rem;
+        }
+        &:before{
+            content: "\f105";
+            font-family: 'FontAwesome';
+            font-weight: bold;
+            padding-right: 1.25rem;
+            @include breakpoint(mobile){
+                padding-right: .75rem;
+            }
+        }
+    }
+}
+
+/**************************************
+    CARDS
+**************************************/
+.about-card {
+    background-color: $lightgrey2;
+    border-radius: 25px;
+    padding: 16px;
+    height: 230px;
+    position: relative;
+    cursor: pointer;
+    @include flexCenter();
+    @include breakpoint(large-laptop){
+        height: 175px;
+    }
+
+
+    > img{
+        transform: scale(1);
+        @include transition(.3s);
+        max-width: 70%;
+        max-height: 100%;
+        @include breakpoint(large-laptop){
+            max-width: 60%;
+        }
+    }
+    &:hover{
+        img{
+            transform: scale(1.1);
+        }
+    }
+
+    .about-card-tooltip{
+        position: absolute;
+        top: 50%;
+        border: 1px solid $primary;
+        border-radius: 20px;
+        padding: 16px;
+        background-color: $white;
+        z-index: 1;
+        width: 280px;
+        opacity: 0;
+        visibility: hidden;
+        cursor: auto;
+        @include transition(.2s);
+
+        @media(max-width: 1024px){
+            font-size: 12px;
+            width: 210px;
+        }
+        @include breakpoint(small-tab){
+            width: 80%;
+        }
+
+        .tooltip-arrow{
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background-color: $white;
+            transform: rotate(45deg) translateY(-50%);
+        }
+        
+        &.tooltip-right {
+            left: calc(100% + 10px);
+            transform: translate(10px, -50%);
+            @include breakpoint(small-tab){
+                left: 50%;
+                top: 100%;
+                transform: translate(-50%, 10px);
+            }
+
+            .tooltip-arrow{
+                left: -18px;
+                border-bottom: 1px solid $primary;
+                border-left: 1px solid $primary;  
+                @include breakpoint(small-tab){
+                    left: 50%;
+                    top: 3px;
+                    transform:rotate(135deg) translate(-50%, 10px);  
+                }  
+            }
+
+            
+        }
+        &.tooltip-left {
+            right: calc(100% + 10px);
+            transform: translate(-10px, -50%);
+            @include breakpoint(small-tab){
+                left: 50%;
+                top: 100%;
+                transform: translate(-50%, 10px);
+            }
+
+            .tooltip-arrow{
+                right: -4px;
+                border-top: 1px solid $primary;
+                border-right: 1px solid  $primary;
+                @include breakpoint(small-tab){
+                    left: 50%;
+                    top: 3px;
+                    transform:rotate(135deg) translate(-50%, 10px);
+
+                    border-top: 1px solid $transparent;
+                    border-right: 1px solid $transparent; 
+                    border-bottom: 1px solid $primary;
+                    border-left: 1px solid $primary;  
+                }
+            }
+        }
+    }
+
+    &:hover{
+        .about-card-tooltip {
+            opacity: 1;
+            visibility: visible;
+            &.tooltip-right {
+                transform: translate(0px, -50%);
+                @include breakpoint(small-tab){
+                    transform: translate(-50%, 0px);
+                }
+            }
+            &.tooltip-left {
+                transform: translate(0px, -50%);
+                @include breakpoint(small-tab){
+                    transform: translate(-50%, 0px);
+                }
+            }
+        }   
+    }
+}
+
+.count-card {
+    border-radius: 16px;
+    background-color: $white;
+    padding: 24px;
+    .count-card-header {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 16px;
+    }
+    .count {
+        background: $secondary;
+        color: $white;
+        width: 32px;
+        height: 32px;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        font-weight: bold;
+    }
+    .title {
+        width: calc(100% - 32px);
+        padding-left: 16px;
+        margin-bottom: 0;
+    }
+}
+
+.case-study-card {
+    padding: 16px;
+    max-width: 400px;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    @include breakpoint(laptop){
+        max-width: 230px;
+    }
+    .card-image{
+        margin-bottom: 24px;
+        img{
+            margin: 0 auto;
+        }
+    }
+    .card-title{
+        color: $secondary;
+    }
+    .card-subtitle{
+        color: $grey;
+    }
+}
+
+
+
+/**************************************
+    TABLES
+**************************************/
+.sa-table{
+    tr{
+        th,
+        td {
+            padding: 24px;
+            border-color: #dee2e6;
+            vertical-align: middle;
+            @include breakpoint(x-large-laptop){
+                padding: 16px;
+            }
+        }
+        th{
+            color: $secondary;
+            border-bottom-width: 1px;
+            
+        }
+        &:last-child{
+            td{
+                border-bottom: 0;
+            }
+        }
+    }
+
+}
+
+
+/**************************************
+    TABLE SCROLLER
+**************************************/
+.table-box{
+    overflow-y: auto;
+}
+.scroll-from-x-large-laptop{
+    table{
+        @include breakpoint(x-large-laptop){
+            width: 1599px;
+        }
+    }
+}
+.scroll-from-large-laptop{
+    table{
+        @include breakpoint(large-laptop){
+            width: 1440px;
+        }
+    }
+}
+.scroll-from-laptop{
+    table{
+        @include breakpoint(laptop){
+            width: 1366px;
+        }
+    }
+}
+.scroll-from-small-laptop{
+    table{
+        @include breakpoint(small-laptop){
+            width: 1199px;
+        }
+    }
+}
+.scroll-from-ipad{
+    table{
+        @include breakpoint(ipad){
+            width: 991px;
+        }
+    }
+}
+.scroll-from-tab{
+    table{
+        @include breakpoint(tab){
+            width: 767px;
+        }
+    }
+}
+.scroll-from-small-tab{
+    table{
+        @include breakpoint(small-tab){
+            width: 575px;
+        }
+    }
+}
+.scroll-from-mobile{
+    table{
+        @include breakpoint(mobile){
+            width: 480px;
+        }
+    }
+}
+.scroll-from-small-mobile{
+    table{
+        @include breakpoint(small-mobile){
+            width: 365px;
+        }
+    }
+}
+
+
+/**************************************
+    SOCIAL ICONS
+**************************************/
+.social-icons-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+
+
+/**************************************
+    SOCIAL ICONS
+**************************************/
+.sa-flip-card {
+  position: relative;
+  -webkit-backface-visibility: hidden;
+  max-width: 550px;
+  width: 100%;
+  cursor: pointer;
+  transform: translateY(0px);
+  border-radius: 10px;
+  @include transition(.3s);
+    &:hover{
+        transform: translateY(-5px);
+
+        .flip-box-front,
+        .flip-box-back{
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+    }
+
+}
+
+.flip-box {
+  -ms-transform-style: preserve-3d;
+  border-radius: 10px;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+  
+}
+
+.flip-box-front,
+.flip-box-back {
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  min-height: 250px;
+  -ms-transition: transform 0.7s cubic-bezier(.4,.2,.2,1);
+  transition: transform 0.7s cubic-bezier(.4,.2,.2,1);
+  -webkit-transition: transform 0.7s cubic-bezier(.4,.2,.2,1);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  color: $white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 1s cubic-bezier(.25,.8,.25,1);
+        
+
+  @include breakpoint(large-laptop){
+    min-height: 220px;
+  }
+}
+
+.flip-box-front {
+  -ms-transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.flip-box.do-flip .flip-box-front {
+  -ms-transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.flip-box-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  
+  -ms-transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.flip-box.do-flip .flip-box-back {
+  -ms-transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.flip-box .inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 24px;
+  outline: 1px solid transparent;
+  -webkit-perspective: inherit;
+  perspective: inherit;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  
+  transform: translateZ(60px) scale(.94);
+  -webkit-transform: translateZ(60px) scale(.94);
+  -ms-transform: translateZ(60px) scale(.94);
+}
+.flip-box .inner > *{
+    width: 100%;
+}
+.flip-card-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+.flip-card-body{
+    margin-bottom: 16px;
+}
+.flip-card-footer{
+    font-size: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+/**************************************
+    STYLISH SCROLL
+**************************************/
+
+.stylish-scroll{
+    /* width */
+    &::-webkit-scrollbar {
+    width: 10px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    }
+    
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+    background: #888; 
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+    }
+}
+
+.stylish-scroll-thin{
+    /* width */
+    &::-webkit-scrollbar {
+    width: 5px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    }
+    
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+    background: $primary; 
+    }
+
+    /* Handle on hover */
+    // &::-webkit-scrollbar-thumb:hover {
+    // background: #555; 
+    // }
+}
+
+/**************************************
+    PAGE PROGRESSBAR
+**************************************/
+.progress-container {
+  background-color: rgba(150, 150, 150, 0.2);
+  height: 10px;
+  width: 100%;
+  position: fixed;
+  top: 87px;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  @include breakpoint(large-laptop){
+    top: 65px;
+  }
+
+  .progress-bar {
+    background-color: $lightprimary;
+    height: 10px;
+    width: 0%;
+    }
+}
+
+/**************************************
+    CASESTUDY TOGGLE SECTION
+**************************************/
+.sa-toggle-section{
+    .sa-toggle-section-header{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 24px;
+        border-radius: 10px;
+        color: $white;
+        min-height: 100px;
+        @include breakpoint(large-laptop){
+            min-height: 70px;
+        }
+        @include breakpoint(mobile){
+            padding: 16px;
+        }
+
+        .inner1{
+            width: calc(100% - 215px);
+            padding-right: 16px;
+            @include breakpoint(x-large-laptop){
+                width: calc(100% - 185px);
+            }
+            @include breakpoint(mobile){
+                width: 100%;
+                padding-right: 0px;
+            }
+        }
+        .inner2{
+            width: 215px;
+            @include breakpoint(x-large-laptop){
+                width: 185px;
+            }
+            @include breakpoint(mobile){
+                width: 100%;
+                margin-top: 16px;
+            }
+        }
+
+        .form-check .form-check-input:checked{
+            background-color: $success;
+            border-color: $success;
+        }
+    }
+    .sa-toggle-section-body{
+        .show-after-toggle{
+            display: none;
+        }
+    }
+
+    &.toggle-btn-clicked{
+        .sa-toggle-section-body{
+            .show-after-toggle{
+                display: block;
+            }
+            .show-before-toggle{
+                display: none;
+            }
+        }
+    }
+}
+
+/**************************************
+    CASESTUDY TOGGLE SECTION
+**************************************/
+#counter-section-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: center;
+}
+#sa-counter-box-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% - 88px);
+    margin-right: 16px;
+    @include breakpoint(ipad){
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 16px;
+    }
+    
+    #counter-box{
+        flex: 1;
+        border-right: 1px solid #dee2e6;
+        padding: 24px;
+        min-height: 200px;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        @include breakpoint(ipad){
+            border-bottom: 1px solid #dee2e6;
+        }
+        @include breakpoint(mobile){
+            flex: unset;
+            border-right: 0;
+            border-bottom: 1px solid #dee2e6;
+            width: 100%;
+        }
+
+        > *{
+            width: 100%;
+        }
+        &:last-child{
+            border-right: 0;
+            @include breakpoint(mobile){
+                border-bottom: 0;
+            }
+        }
+    }
+}
+
+/**************************************
+    PAGE LOADER
+**************************************/
+.page-loader{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $secondary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+    color: $white;
+    z-index: 999;
+
+    .loader-content{
+        animation-name: blurAnimation;
+        animation-iteration-count: infinite;
+        animation-duration: 5s;
+    }
+}
+@keyframes blurAnimation {
+    0%{
+        filter: blur(3px);
+    }
+    80%{
+        filter: blur(0px);
+    }
+    100%{
+        filter: blur(0px);
+    }
+}
+
+
+/**************************************
+    SCROLL TO SEE MORE ELEMENT
+**************************************/
+.scroll-to-see-more{
+    position: fixed;
+    right: 0px;
+    bottom: 130px;
+    z-index: 1;
+    color: #3C1663;
+    display: flex;
+    align-items: center;
+    rotate: -90deg;
+    margin-right: -60px;
+    .mouse {
+        width: 26px;
+        height: 40px;
+        border-radius: 15px;
+        border: 2px solid $primary;
+        position: relative;
+        overflow: hidden;
+        transform: rotate(90deg);
+        margin-right: 24px;
+    }
+    .mouse .roll {
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        width: 4px;
+        margin-left: -2px;
+        height: 4px;
+        border-radius: 4px;
+        background: #000;
+        -webkit-animation: mouseScroll .8s cubic-bezier(.7,0,.3,1) infinite alternate;
+        animation: mouseScroll .8s cubic-bezier(.7,0,.3,1) infinite alternate;
+        z-index: 2;
+    }
+    .mouse .rollshadow {
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        width: 4px;
+        margin-left: -2px;
+        height: 4px;
+        background: #aaa;
+        border-radius: 4px;
+        -webkit-animation: mouseScroll .8s cubic-bezier(.7,0,.3,1) infinite alternate;
+        animation: mouseScroll .8s cubic-bezier(.7,0,.3,1) infinite alternate;
+            animation-delay: 0s;
+        -webkit-animation-delay: 80ms;
+        animation-delay: 80ms;
+        z-index: 1;
+    }
+    @-webkit-keyframes mouseScroll {
+    0% {
+    -webkit-transform:translateY(0);
+    transform:translateY(0)
+    }
+    100% {
+    -webkit-transform:translateY(14px);
+    transform:translateY(14px)
+    }
+    }
+    @keyframes mouseScroll {
+    0% {
+    -webkit-transform:translateY(0);
+    transform:translateY(0)
+    }
+    100% {
+    -webkit-transform:translateY(14px);
+    transform:translateY(14px)
+    }
+    }
+}
+

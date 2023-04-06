@@ -1,0 +1,232 @@
+.bg-cover-center{
+    @include bg-cover-center();
+}
+.flex-center{
+    @include flexCenter();
+}
+.text-mini{
+    font-size: 12px;
+}
+.text-large{
+    font-size: 18px;
+}
+.no-decoration{
+    text-decoration: none;
+}
+.w-fit-content{
+    width: fit-content;
+}
+.decoration-underline{
+    text-decoration: underline;
+}
+.min-h-100vh{
+    min-height: 100vh;
+}
+.no-list-style{
+    list-style-type: none;
+}
+.box-shadow{
+    @include box-shadow();
+}
+.negative-horizontal-margin{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.rounded-large{
+    border-radius: 10px;
+}
+.section-padding{
+    padding: 50px 0;
+}
+.overflow-hidden{
+    overflow: hidden;
+}
+.table-layout-fixed{
+    table-layout: fixed;
+}
+.container-medium{
+    max-width: 767px;
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.container-small{
+    max-width: 576px;
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.sa-badge {
+    color: #fff;
+    padding: 7px 24px;
+    border-radius: 30px;
+    font-size: 14px;
+    display: inline-block;
+    @include breakpoint(x-large-laptop){
+        padding: 3px 18px;
+    }
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.line-clamp1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+.round35-outline-pink{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid $pink;
+    color: $pink;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.no-bullets{
+    list-style-type: none;
+}
+.bulleted-list{
+    li{
+        position: relative;
+        padding-left: 30px;
+        list-style-type: none;
+        margin-bottom: 16px;
+        &:before{
+            content: "";
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: $primary;
+            position: absolute;
+            top: 5px;
+            left: 0;
+            border: 4px solid $lightgrey;
+            outline: $primary solid 1px;
+        }
+    }
+}
+.stylish-heading{
+    position: relative;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    &:after{
+        content: "";
+        width: 60px;
+        height: 4px;
+        background-color: $primary;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    &.text-center{
+     &:after{
+        content: "";
+            left: 50%;
+            transform: translateX(-50%);
+        }   
+    }
+}
+.shadow-in-bg{
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    box-shadow: 0px 1px 200px 23px #3c166361;
+}
+
+
+/***************************************
+    TEXT COLORS
+***************************************/
+.text-primary{
+    color: $primary !important;
+}
+.text-lightprimary{
+    color: $lightprimary !important;
+}
+.text-secondary{
+    color: $secondary !important;
+}
+.text-grey{
+    color: $grey !important;
+}
+.text-lightgrey{
+    color: $lightgrey !important;
+}
+.text-lightgrey2{
+    color: $lightgrey2 !important;
+}
+.text-universal{
+    color: $universal !important;
+}
+.text-sky{
+    color: $sky !important;
+}
+.text-orange{
+    color: $orange !important;
+}
+.text-success{
+    color: $success !important;
+}
+.text-danger{
+    color: $danger !important;
+}
+.text-pink{
+    color: $pink !important;
+}
+.text-parrot{
+    color: $parrot !important;
+}
+
+/***************************************
+    BACKGROUND COLORS
+***************************************/
+.bg-primary{
+    background-color: $primary !important;
+}
+.bg-lightprimary{
+    background-color: $lightprimary !important;
+}
+.bg-secondary{
+    background-color: $secondary !important;
+}
+.bg-grey{
+    background-color: $grey !important;
+}
+.bg-lightgrey{
+    background-color: $lightgrey !important;
+}
+.bg-lightgrey2{
+    background-color: $lightgrey2 !important;
+}
+.bg-universal{
+    background-color: $universal !important;
+}
+.bg-sky{
+    background-color: $sky !important;
+}
+.bg-orange{
+    background-color: $orange !important;
+}
+.bg-success{
+    background-color: $success !important;
+}
+.bg-danger{
+    background-color: $danger !important;
+}
+.bg-pink{
+    background-color: $pink !important;
+}
+.bg-parrot{
+    background-color: $parrot !important;
+}

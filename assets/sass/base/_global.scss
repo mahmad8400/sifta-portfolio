@@ -1,0 +1,89 @@
+html{
+    scroll-behavior: smooth;
+}
+body{
+    color: $secondary;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: "Rebond-Grotesque-Regular";
+    min-height: 100vh;
+    background-color: #FCFBFC;
+    @extend .stylish-scroll;
+}
+h1{
+    font-size: 48px;
+    @include breakpoint(large-laptop){
+        font-size: 42px;
+    }
+    @include breakpoint(small-laptop){
+        font-size: 36px;
+    }
+    @include breakpoint(tab){
+        font-size: 32px;
+    }
+}
+h2{
+    font-size: 40px;
+    @include breakpoint(large-laptop){
+        font-size: 32px;
+    }
+    @include breakpoint(small-laptop){
+        font-size: 28px;
+    }
+}
+h3{
+    font-size: 32px;
+    @include breakpoint(large-laptop){
+        font-size: 26px;
+    }
+    @include breakpoint(small-laptop){
+        font-size: 24px;
+    }
+}
+h4{
+    font-size: 26px;
+    @include breakpoint(large-laptop){
+        font-size: 22px;
+    }
+    @include breakpoint(small-laptop){
+        font-size: 20px;
+    }
+}
+h5{
+    font-size: 22px;
+    @include breakpoint(large-laptop){
+        font-size: 20px;
+    }
+    @include breakpoint(small-laptop){
+        font-size: 18px;
+    }
+}
+h6{
+    font-size: 18px;
+    @include breakpoint(small-laptop){
+        font-size: 16px;
+    }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family: "Rebond-Grotesque-bold";
+}
+ul,
+ol{
+    padding: 0;
+    margin: 0;
+}
+img{
+    max-width: 100%;
+}
+span{
+    display: inline-block;
+}
+section{
+    padding: 50px 0;
+}
