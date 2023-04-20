@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./assets/images/icons/favicon.svg">
     <title>Home</title>
 
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
@@ -18,8 +19,16 @@
     <link rel="stylesheet" href="./style.css">   
 </head>
 <body>
-    <div class="page-loader">
+    <!-- <div class="page-loader">
       <div class="loader-content"><h3 class="mb-0">Hi, nice to meet you <img src="./assets/images/sparkles.png" alt="img" /></h3></div>
+    </div> -->
+
+    <div id="splash-screen">
+      <div class="column"></div>
+      <div class="column"></div>
+      <div class="column"></div>
+      <div class="column"></div>
+      <div class="spalash-screen-content"><h4 class="mb-0">Hi, nice to meet you <img src="./assets/images/sparkles.png" alt="img" style="width:20px; margin-left:4px;" /></h4></div>
     </div>
 
     <header>
@@ -86,14 +95,14 @@
                   <div class="tooltipper d-inline">generalist
 
                     <div class="tooltip-icon d-md-flex d-none">
-                      <img src="./assets/images/question-mark-tooltip.png" alt="img" />
+                      <img src="./assets/images/icons/question-mark-tooltip.svg" alt="img" />
 
                       <div class="tooltop-box">
                         <div class="tooltip-img-box">
                           <img src="./assets/images/brain.gif" alt="img" />
                         </div>
                         <div class="tooltip-content-box">
-                          <h3>Wait a minute, what’s a generalist designer?</h3>
+                          <h3 class="text-secondary">Wait a minute, what’s a generalist designer?</h3>
                           <p>A UX designer that specializes in many different areas is known as a generalist. You might do some work in interaction design, some work in visual design, and more.</p>
                         </div>
                       </div>
@@ -103,7 +112,7 @@
                     </div>
                   </div> 
                   designer</span> helping businesses connect with their customers through user-friendly designs.</h1>
-                <a href="cards.html" class="sa-btn sa-btn-secondary-hover-primary">Wanna see something fun?</a>
+                <a href="cards.html" class="sa-btn sa-btn-primary-gradient">Wanna see something fun?</a>
               </div>
               <!-- <div class="col-md-5 intro-col-2 pe-0">
                 <img src="./assets/images/sifta-image.png" class="w-100" alt="sifta" style="opacity:.1;" />
@@ -122,7 +131,7 @@
                 <div class="widget-icon">
                   <img src="./assets/images/icons/work-icon.svg" alt="">
                 </div>
-                <div class="widget-text">Currently working at<br/> System Plus</div>
+                <div class="widget-text">Over 2+ years of at<br/> experience</div>
               </div>
             </div>
             <div class="col-sm-4 py-2">
@@ -138,7 +147,7 @@
                 <div class="widget-icon">
                   <img src="./assets/images/icons/copyright-icon.svg" alt="">
                 </div>
-                <div class="widget-text">2022. All rights<br/> reserved to Sifta Idrees</div>
+                <div class="widget-text">All rights reserved to <br/> Sifta Idrees</div>
               </div>  
             </div>
           </div>
@@ -177,5 +186,28 @@
     <script type="text/javascript" src="./assets/js/about-page.js"></script>
     <script type="text/javascript" src="./assets/js/work-page.js"></script>
     <script type="text/javascript" src="./assets/js/case-study.js"></script>
+
+    <script>
+      const columns = document.querySelectorAll(".column");
+
+      setTimeout(() => {
+        columns.forEach((column, index) => {
+          setTimeout(() => {
+            column.style.transform = "translateY(100%)";
+          }, index * 200);
+          // 200 is time of fallen down after one another
+        });
+      }, 1500);
+      // 1500 is the starting time of fallen down of first column
+
+      setTimeout(() => {
+        const splashScreen = document.querySelector("#splash-screen");
+        splashScreen.style.transition = "opacity 1s ease-in-out";
+        splashScreen.style.opacity = "0";
+        setTimeout(() => {
+          splashScreen.remove();
+        }, 1000);
+      }, 3000);
+    </script>
 </body>
 </html>
