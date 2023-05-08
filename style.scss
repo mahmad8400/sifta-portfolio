@@ -89,7 +89,7 @@ header{
             }
             &:hover{
               &:after{
-                opacity: .3;
+                opacity: .15;
               }
             }
           }
@@ -183,7 +183,7 @@ header{
   background-position: calc(100% + 150px) center;
 
   @include breakpoint(large-laptop){
-    min-height: calc(100vh - 58px - 68px);
+    min-height: calc(100vh - 59px - 68px);
 
   // second veiw
   background-position: calc(100% + 170px) center;
@@ -891,10 +891,10 @@ header{
   position: relative;
   .tooltip-icon{
       position: absolute;
-      top: -20px;
+      top: -17px;
       left: calc(50% - 13px);
-      width: 27px;
-      height: 27px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       background: white;
       display: flex;
@@ -906,12 +906,12 @@ header{
       }
 
     .tooltop-box{
-      padding: 24px;
       position: absolute;
       top: -4px;
       width: 680px;
       border: 1px solid #dee2e6;
       background-color: $white;
+      background-color: #F5EFFB;
       display: flex;
       flex-wrap: wrap;
       border-radius: 8px;
@@ -922,7 +922,6 @@ header{
       @include breakpoint(large-laptop){
         top: 28px;
         transform: translate(-50% , 0%);
-        padding: 16px;
         width: 580px;
       }
       @include breakpoint(tab){
@@ -931,17 +930,20 @@ header{
 
       .tooltip-img-box{
         width: 200px;
-        padding-right: 24px;
         @include breakpoint(large-laptop){
-          padding: 0;
           width: 175px;
         }
       }
       .tooltip-content-box{
         width: calc(100% - 200px);
+        padding: 24px;
+        @include breakpoint(large-laptop){
+          width: calc(100% - 175px);
+          padding: 16px;
+        }
         h3{
           line-height: normal;
-          margin-bottom: 20px;
+          margin-bottom: 12px;
         }
         p{
           font-size: 16px;

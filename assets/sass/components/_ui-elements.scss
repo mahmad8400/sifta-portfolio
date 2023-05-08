@@ -74,10 +74,10 @@
 .sa-btn-outline-primary{
     border: 1px solid $primary;
     background-color: $transparent;
-    color: $primary;
+    color: $secondary;
     &:hover{
-        background-color: $primary;
-        color: $white;
+        border-color: #8940D5;
+        color: $primary
     }
 }
 
@@ -228,6 +228,7 @@
     padding: 16px;
     height: 230px;
     position: relative;
+    border: 1px solid #dee2e6;
     cursor: pointer;
     @include flexCenter();
     @include breakpoint(large-laptop){
@@ -714,7 +715,7 @@
   right: 0;
   z-index: 9;
   @include breakpoint(large-laptop){
-    top: 65px;
+    top: 57px;
   }
 
   .progress-bar {
