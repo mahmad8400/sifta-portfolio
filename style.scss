@@ -610,7 +610,7 @@ header{
 
 /*case study banner*/
 .case-study-banner{
-  @extend .section-padding;
+  padding: 65px 0 50px;
   .case-study-banner-inner{
     border-radius: 25px;
     .banner-content-block{
@@ -646,8 +646,9 @@ header{
             }
             .property-text{
               width: calc(100% - 50px);
+              white-space: nowrap;
               .title{
-                @include breakpoint(ipad){
+                @include breakpoint(large-laptop){
                   font-size: 14px;
                 }
               }
@@ -686,6 +687,9 @@ header{
           padding: 4px 10px 2px 20px;
           display: block;
           position: relative;
+          @include breakpoint(large-laptop){
+            font-size: 14px;
+          }
           &:after{
             content: "";
             width: 4px;
@@ -700,6 +704,7 @@ header{
           }
 
           &.active{
+            font-family: "Rebond-Grotesque-Semibold";
             &:after{
               height: 100%;  
             }
@@ -729,7 +734,9 @@ header{
       }
     }
     .scrollspy-section-sidebar{
+      position: relative;
       width: 400px;
+      z-index: 1;
       @include breakpoint(large-laptop){
         width: 300px;
       }
@@ -738,6 +745,19 @@ header{
       }
       @include breakpoint(tab){
         display: none;
+      }
+
+      &:after{
+        content: "";
+        width: 1px;
+        background-color: #dee2e6;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 80px;
+        @include breakpoint(large-laptop){
+          right: 24px;
+        }
       }
     }
     .scrollspy-section-contentbar{
@@ -760,6 +780,9 @@ header{
 
   &.instashowing-casestudy{
     .scrollspy-section-nav ul li a{
+      &.active{
+        color: #38274C;
+      }
       &:after{
         background-color: #38274C;
       }
@@ -768,6 +791,9 @@ header{
 
   &.sweet-and-savoury-casestudy{
     .scrollspy-section-nav ul li a{
+      &.active{
+        color: #7167DA;
+      }
       &:after{
         background-color: #7167DA;
       }
@@ -776,6 +802,9 @@ header{
 
   &.coverworld-casestudy{
     .scrollspy-section-nav ul li a{
+      &.active{
+        color: #E31C3D;
+      }
       &:after{
         background-color: #E31C3D;
       }
@@ -784,6 +813,9 @@ header{
 
   &.stellar-gre-casestudy{
     .scrollspy-section-nav ul li a{
+      &.active{
+        color: #00073D;
+      }
       &:after{
         background-color: #00073D;
       }
@@ -792,6 +824,9 @@ header{
 
   &.animatics-casestudy{
     .scrollspy-section-nav ul li a{
+      &.active{
+        color: #417D28;
+      }
       &:after{
         background-color: #417D28;
       }
@@ -857,22 +892,23 @@ header{
   }
 
   .slick-arrow{
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
     z-index: 1;
     transform: translateY(-60px);
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+    // box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     &:before{
       content: "";
       background-image: url('./assets/images/icons/slider-arrow-right.svg');
       background-repeat: no-repeat;
       background-position: center;
-      width: 50px;
-      height: 50px;
+      width: 44px;
+      height: 44px;
       display: block;
       background-color: $white;
       border-radius: 50%;
+      border: 1px solid #dee2e6;
     }
 
     &.slick-prev{
