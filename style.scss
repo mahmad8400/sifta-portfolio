@@ -34,7 +34,7 @@ header{
     .logo-box{
       display: block;
       @include breakpoint(large-laptop){
-        width: 48px;
+        width: 64px;
       }
     }
     nav{
@@ -179,7 +179,7 @@ header{
   // background-size: 40% auto;
 
   // second veiw
-  background-image: url("./assets/images/hero-img2.png");
+  background-image: url("./assets/images/hero-img3.png");
   background-position: calc(100% + 150px) center;
 
   @include breakpoint(large-laptop){
@@ -613,11 +613,18 @@ header{
   padding: 65px 0 50px;
   .case-study-banner-inner{
     border-radius: 25px;
+    min-height: 450px;
     .banner-content-block{
       @include flexCenter();
 
       .banner-content-block-inner{
         max-width: 670px;
+        h2{
+          max-width: 550px;
+          @include breakpoint(ipad){
+            max-width: 100%;
+          }
+        }
         .case-study-properties{
           display: flex;
           flex-wrap: wrap;
@@ -626,15 +633,17 @@ header{
           }
 
           > .single-property{
-            width: 33.33%;
+            // max-width: 40%;
             display: flex;
             flex-wrap: wrap;
-            padding-right: 16px;
+            padding-right: 24px;
             @include breakpoint(tab){
-              width: 50%;
+              max-width: 50%;
+              width: 100%;
               padding-right: 0;
             }
             @include breakpoint(mobile){
+              max-width: 100%;
               width: 100%;
             }
 
@@ -642,11 +651,11 @@ header{
               padding-right: 0px;
             }
             .img-property-icon{
-              width: 50px;
+              width: 45px;
             }
             .property-text{
-              width: calc(100% - 50px);
-              white-space: nowrap;
+              width: calc(100% - 45px);
+              
               .title{
                 @include breakpoint(large-laptop){
                   font-size: 14px;
@@ -662,9 +671,10 @@ header{
       }
     }
     .banner-image-block{
+      @include flexCenter();
       img{
         max-width: 100%;
-        max-width: 100%;
+        max-height: 100%;
       }
     }
   }
@@ -756,7 +766,7 @@ header{
         bottom: 0;
         right: 80px;
         @include breakpoint(large-laptop){
-          right: 24px;
+          right: 30px;
         }
       }
     }
@@ -1019,6 +1029,32 @@ header{
   }
   .inner2{
     width: 100px;
+  }
+}
+
+.list-title-with-num{
+  li{
+    border-bottom: 1px solid #dee2e6;
+    .title{
+      display: flex;
+      .round35-outline-pink{
+        width: 35px;
+        height: 35px;
+      }
+      h6{
+        width: calc(100% - 35px);
+        padding-left: 16px;
+        padding-top: 6px;
+      }
+    }
+  }
+}
+
+.coverworld-casestudy{
+  .shadow-in-bg{
+    @include breakpoint(mobile){
+      box-shadow: 0px 1px 200px 23px #e31c3d52 !important;
+    }
   }
 }
 

@@ -92,7 +92,7 @@ $(document).ready(function(){
 		slidesToShow: 3,
 		arrows: true,
 		dots: false,
-		autoplay: true,
+		// autoplay: true,
 		autoplaySpeed: 2000,
 		speed: 1000,
 		// centerPadding: '40px',
