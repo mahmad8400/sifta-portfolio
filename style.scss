@@ -613,7 +613,11 @@ header{
   padding: 65px 0 50px;
   .case-study-banner-inner{
     border-radius: 25px;
-    min-height: 450px;
+    min-height: 410px;
+    @include breakpoint(ipad){
+      flex-direction: column-reverse
+    }
+
     .banner-content-block{
       @include flexCenter();
 
@@ -1037,12 +1041,13 @@ header{
     border-bottom: 1px solid #dee2e6;
     .title{
       display: flex;
-      .round35-outline-pink{
-        width: 35px;
-        height: 35px;
+      h5{
+        width: 28px;
+        height: 28px;
+        // font-size: 24px;
       }
       h6{
-        width: calc(100% - 35px);
+        width: calc(100% - 28px);
         padding-left: 16px;
         padding-top: 6px;
       }
@@ -1055,6 +1060,52 @@ header{
     @include breakpoint(mobile){
       box-shadow: 0px 1px 200px 23px #e31c3d52 !important;
     }
+  }
+}
+.storyboard-tag{
+  position: absolute;
+  top: 100px;
+  left: 0;
+  transform: translateX(-30%);
+  max-width: 100px;
+}
+.impact-content{
+  display: flex;
+  flex-wrap: wrap;
+  .content-box{
+    width: calc(100% - 88px);
+    margin-right: 16px;
+  }
+}
+.coverworld-shadow-in-bg{
+  box-shadow: 0px 1px 200px 23px #e31c3d54;
+}
+.show-from-mobile{
+  display: none;
+  @include breakpoint(mobile){
+    display: block;
+  }
+}
+.hide-from-mobile{
+  @include breakpoint(mobile){
+    display: none;
+  }
+}
+.mobile-video-bg{
+  max-width: 480px;
+  width: 100%;
+  border-radius: 12px;
+  padding: 48px;
+  // position: relative;
+  // img{
+  //   width: 100%;
+  // }
+  video{
+    width: 65%;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
   }
 }
 

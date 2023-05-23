@@ -118,4 +118,16 @@ $(document).ready(function(){
 		]
 	});
 
+
+	$('.mobile-responsive-views-slider').slick({
+		centerMode: true,
+		slidesToShow: 1,
+		arrows: false,
+		dots: false,
+		// autoplay: true,
+		autoplaySpeed: 2000,
+		adaptiveHeight: true,
+		speed: 1000,
+	});
+
 });
