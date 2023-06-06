@@ -3410,8 +3410,55 @@ header .header-inner .header-center {
   padding: 48px;
 }
 
+@media only screen and (max-width: 1366px) {
+  .mobile-video-bg {
+    padding: 32px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .mobile-video-bg {
+    padding: 24px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .mobile-video-bg {
+    padding: 16px;
+  }
+}
+
 .mobile-video-bg video {
   width: 65%;
+}
+
+.desktop-video-bg {
+  max-width: 100%;
+  width: 100%;
+  border-radius: 12px;
+  padding: 48px;
+}
+
+@media only screen and (max-width: 1366px) {
+  .desktop-video-bg {
+    padding: 32px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .desktop-video-bg {
+    padding: 24px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .desktop-video-bg {
+    padding: 16px;
+  }
+}
+
+.desktop-video-bg video {
+  width: 100%;
 }
 
 /***************************************
